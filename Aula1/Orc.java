@@ -2,8 +2,8 @@
 /**
  * Escreva a descrição da classe Orc aqui.
  * 
- * @author (seu nome) 
- * @version (número de versão ou data)
+ * @author Ari 
+ * @version 1.0
  */
 public class Orc
 {
@@ -19,7 +19,11 @@ public class Orc
         vida = 110;
     }
     
-    public void sofrerDano(int dano) {
-        this.vida -= dano;
+    public int getVida() {
+        return this.vida;
+    }
+    
+    public void diminuirVida(int valor) {
+        if (this.vida > 0) this.vida -= valor;
     }
 }

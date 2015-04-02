@@ -2,6 +2,8 @@
 comment0.params=
 comment0.target=Orc()
 comment0.text=\r\n\ COnstrutor\ para\ objetos\ da\ classe\ Orc\r\n
-comment1.params=dano
-comment1.target=void\ sofrerDano(int)
-numComments=2
+comment1.params=
+comment1.target=int\ getVida()
+comment2.params=valor
+comment2.target=void\ diminuirVida(int)
+numComments=3
