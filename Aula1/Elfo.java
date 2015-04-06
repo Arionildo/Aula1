@@ -41,7 +41,7 @@ public class Elfo
     }
     
     public int atirarFlecha(Orc orc){
-        if (flechas > 0) {            
+        if (flechas > 0 && orc.getVida() > 0) {            
             flechas--;
             orc.diminuirVida(danoFlechas);
             setExp(7);
@@ -62,5 +62,9 @@ public class Elfo
     
     private void setExp(int novoExp){
         this.experiencia += novoExp;
+    }
+    
+    public int getExperiencia() {
+        return this.experiencia;
     }
 }

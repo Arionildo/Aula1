@@ -8,8 +8,8 @@ import org.junit.Test;
 /**
  * A classe de teste ElfoTest.
  *
- * @author  (seu nome)
- * @version (um número de versão ou data)
+ * @author  Arionildo.Escouto
+ * @version 06/04/2015
  */
 public class ElfoTest
 {
@@ -70,6 +70,81 @@ public class ElfoTest
         Elfo e = new Elfo(nomeEsperado, flechasEsperadas);
         
         assertEquals(nomeEsperado, e.getNome());
+        assertEquals(flechasEsperadas, e.getFlechas());
+    }
+    
+    @Test
+    public void elfoAtacaOrc() {
+        String nome = "Teste1";
+        Elfo e = new Elfo(nome);
+        Orc o = new Orc();
+        int expEsperado = 7;
+        int flechasEsperadas = 41;
+        
+        e.atirarFlecha(o);
+        
+        assertEquals(expEsperado, e.getExperiencia());
+        assertEquals(flechasEsperadas, e.getFlechas());
+    }
+    
+    @Test
+    public void elfoAtacaOrcsDiferentes() {
+        String nome = "Teste1";
+        Elfo e = new Elfo(nome);
+        Orc oA = new Orc();
+        Orc oB = new Orc();
+        int vidaOrcA = 100;
+        int vidaOrcB = 100;
+        int expEsperado = 14;
+        int flechasEsperadas = 40;
+        
+        e.atirarFlecha(oA);
+        e.atirarFlecha(oB);
+        
+        assertEquals(expEsperado, e.getExperiencia());
+        assertEquals(flechasEsperadas, e.getFlechas());
+        assertEquals(vidaOrcA, oA.getVida());
+        assertEquals(vidaOrcB, oB.getVida());
+    }
+    
+    @Test
+    public void elfoMataOrc() {
+        String nome = "Teste1";
+        Elfo e = new Elfo(nome);
+        Orc o = new Orc();
+        int flechasEsperadas = 31;
+        int vidaOrcEsperada = 0;
+        
+        e.atirarFlecha(o);
+        e.atirarFlecha(o);
+        e.atirarFlecha(o);
+        e.atirarFlecha(o);
+        e.atirarFlecha(o);
+        e.atirarFlecha(o);
+        e.atirarFlecha(o);
+        e.atirarFlecha(o);
+        e.atirarFlecha(o);
+        e.atirarFlecha(o);
+        e.atirarFlecha(o);
+        e.atirarFlecha(o);
+        
+        assertEquals(vidaOrcEsperada, o.getVida());
+        assertEquals(flechasEsperadas, e.getFlechas());
+    }
+    
+    @Test
+    public void elfoEsgotaFlechas() {
+        String nome = "Teste1";
+        Elfo e = new Elfo(nome, 2);
+        Orc o = new Orc();
+        int expEsperado = 14;
+        int flechasEsperadas = 0;
+        
+        e.atirarFlecha(o);
+        e.atirarFlecha(o);
+        e.atirarFlecha(o);
+        
+        assertEquals(expEsperado, e.getExperiencia());
         assertEquals(flechasEsperadas, e.getFlechas());
     }
     

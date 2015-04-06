@@ -8,8 +8,8 @@ import org.junit.Test;
 /**
  * A classe de teste OrcTest.
  *
- * @author  (seu nome)
- * @version (um número de versão ou data)
+ * @author  Arionildo.Escouto
+ * @version 06/04/2015
  */
 public class OrcTest
 {
