@@ -18,7 +18,6 @@ public class Elfo
     private int flechas;
     private static final int danoFlechas = 10;
     private int experiencia;
-    private Orc orc = new Orc();;
 
     /**
      * COnstrutor para objetos da classe Elfo
@@ -37,7 +36,7 @@ public class Elfo
        this.flechas = 42;
     }
     
-    public int atirarFlecha(){
+    public int atirarFlecha(Orc orc){
         if (flechas > 0) {            
             flechas--;
             orc.diminuirVida(danoFlechas);
@@ -51,6 +50,10 @@ public class Elfo
         if (novoFlechas > flechas) {
             this.flechas = novoFlechas;
         }
+    }
+    
+    public int getFlechas() {
+        return this.flechas;
     }
     
     private void setExp(int novoExp){

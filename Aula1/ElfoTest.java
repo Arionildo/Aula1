@@ -1,4 +1,4 @@
-//teste
+
 
 import static org.junit.Assert.*;
 import org.junit.After;
@@ -6,26 +6,28 @@ import org.junit.Before;
 import org.junit.Test;
 
 /**
- * A classe de teste OrcTest.
+ * A classe de teste ElfoTest.
  *
  * @author  (seu nome)
  * @version (um número de versão ou data)
  */
-public class OrcTest
+public class ElfoTest
 {
     /**
-     * Construtor default para a classe de teste OrcTest
+     * Construtor default para a classe de teste ElfoTest
      */
-    
-    public OrcTest()
+    public ElfoTest()
     {
     }
 
     @Test
-    public void orcCom110Vida() {
-        Orc orc = new Orc();
-        int esperado = 110;
-        int resultado = orc.getVida();
+    public void diminuiFlecha() {
+        Elfo e = new Elfo("Teste");
+        Orc o = new Orc();
+        
+        int esperado = e.getFlechas() - 1;
+        e.atirarFlecha(o);
+        int resultado = e.getFlechas();
         
         assertEquals(esperado, resultado);
     }
