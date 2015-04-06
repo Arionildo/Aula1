@@ -36,6 +36,10 @@ public class Elfo
        this.flechas = 42;
     }
     
+    public String getNome() {
+        return this.nome;
+    }
+    
     public int atirarFlecha(Orc orc){
         if (flechas > 0) {            
             flechas--;
