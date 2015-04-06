@@ -69,6 +69,11 @@ public class Elfo
     }
     
     public String toString() {
-        return this.getNome() +" possui "+ this.getFlechas() +" flechas e "+ this.getExperiencia() +" níveis de experiência.";
+        return String.format(
+            "%s possui %d flechas e %d níveis de experiência.",
+            this.getNome(),
+            this.getFlechas(),
+            this.getExperiencia()
+        );
     }
 }

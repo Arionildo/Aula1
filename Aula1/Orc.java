@@ -9,6 +9,7 @@ public class Orc
 {
     // variáveis de instância - substitua o exemplo abaixo pelo seu próprio
     private int vida;
+    private Status status;
 
     /**
      * Construtor para objetos da classe Orc
@@ -16,6 +17,7 @@ public class Orc
     public Orc()
     {
         // inicializa variáveis de instância
+        status = Status.VIVO;
         vida = 110;
     }
     
@@ -27,7 +29,11 @@ public class Orc
      * Diminui a vida do Orc no valor requerido
      */
     public void diminuirVida(int valor) {
-        if (this.vida > 0) this.vida -= valor;
+        if (this.vida > 0) {
+            this.vida -= valor;
+        } else if (this.vida == 0) {
+            status = Status.MORTO;
+        }
     }
     
     /**
@@ -35,5 +41,9 @@ public class Orc
      */
     public String toString() {
         return "Vida Atual: "+ this.getVida();
+    }
+    
+    public Status getStatus() {
+        return this.status;
     }
 }

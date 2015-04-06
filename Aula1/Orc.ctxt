@@ -10,4 +10,6 @@ comment2.text=\r\n\ Diminui\ a\ vida\ do\ Orc\ no\ valor\ requerido\r\n
 comment3.params=
 comment3.target=java.lang.String\ toString()
 comment3.text=\r\n\ Exibe\ a\ Vida\ do\ Orc\r\n
-numComments=4
+comment4.params=
+comment4.target=Status\ getStatus()
+numComments=5
