@@ -2,8 +2,8 @@
 /**
  * Escreva a descrição da classe Elfo aqui.
  * 
- * @author Ari 
- * @version 1.0
+ * @author  Arionildo.Escouto
+ * @version 06/04/2015
  */
 public class Elfo
 {
@@ -20,7 +20,7 @@ public class Elfo
     private int experiencia;
 
     /**
-     * COnstrutor para objetos da classe Elfo
+     * Construtor para objetos da classe Elfo
      */
     public Elfo(String novoNome, int novoflechas)
     {
@@ -66,5 +66,9 @@ public class Elfo
     
     public int getExperiencia() {
         return this.experiencia;
+    }
+    
+    public String toString() {
+        return this.getNome() +" possui "+ this.getFlechas() +" flechas e "+ this.getExperiencia() +" níveis de experiência.";
     }
 }

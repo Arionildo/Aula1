@@ -2,8 +2,8 @@
 /**
  * Escreva a descrição da classe Orc aqui.
  * 
- * @author Ari 
- * @version 1.0
+ * @author  Arionildo.Escouto
+ * @version 06/04/2015
  */
 public class Orc
 {
@@ -11,7 +11,7 @@ public class Orc
     private int vida;
 
     /**
-     * COnstrutor para objetos da classe Orc
+     * Construtor para objetos da classe Orc
      */
     public Orc()
     {
@@ -23,7 +23,17 @@ public class Orc
         return this.vida;
     }
     
+    /**
+     * Diminui a vida do Orc no valor requerido
+     */
     public void diminuirVida(int valor) {
         if (this.vida > 0) this.vida -= valor;
+    }
+    
+    /**
+     * Exibe a Vida do Orc
+     */
+    public String toString() {
+        return "Vida Atual: "+ this.getVida();
     }
 }

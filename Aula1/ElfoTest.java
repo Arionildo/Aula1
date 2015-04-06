@@ -73,6 +73,12 @@ public class ElfoTest
         assertEquals(flechasEsperadas, e.getFlechas());
     }
     
+    
+    /**
+     * 
+     * TESTES DE ATAQUE
+     * 
+     */
     @Test
     public void elfoAtacaOrc() {
         String nome = "Teste1";
@@ -146,6 +152,54 @@ public class ElfoTest
         
         assertEquals(expEsperado, e.getExperiencia());
         assertEquals(flechasEsperadas, e.getFlechas());
+    }
+    
+    
+    /**
+     * 
+     * TESTES MÉTODO toString()
+     * 
+     */
+    @Test
+    public void elfoToString() {
+        Elfo e = new Elfo("Teste");
+        String esperado = "Teste possui 42 flechas e 0 níveis de experiência.";
+        
+        assertEquals(esperado, e.toString());
+    }
+    
+    @Test
+    public void elfoToStringAposDoisAtaque() {
+        Elfo e = new Elfo("Teste1");
+        Orc o = new Orc();
+        String esperado = "Teste1 possui 40 flechas e 14 níveis de experiência.";
+        
+        e.atirarFlecha(o);
+        e.atirarFlecha(o);
+        
+        assertEquals(esperado, e.toString());
+    }
+    
+    @Test
+    public void elfoToStringAposMatarOrc() {
+        Elfo e = new Elfo("Teste2");
+        Orc o = new Orc();
+        String esperado = "Teste2 possui 31 flechas e 77 níveis de experiência.";
+        
+        e.atirarFlecha(o);
+        e.atirarFlecha(o);
+        e.atirarFlecha(o);
+        e.atirarFlecha(o);
+        e.atirarFlecha(o);
+        e.atirarFlecha(o);
+        e.atirarFlecha(o);
+        e.atirarFlecha(o);
+        e.atirarFlecha(o);
+        e.atirarFlecha(o);
+        e.atirarFlecha(o);
+        e.atirarFlecha(o);
+        
+        assertEquals(esperado, e.toString());
     }
     
     /**

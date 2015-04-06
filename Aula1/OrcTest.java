@@ -30,6 +30,50 @@ public class OrcTest
         assertEquals(esperado, resultado);
     }
     
+    @Test
+    public void orcToString() {
+        Orc orc = new Orc();
+        String esperado = "Vida Atual: 110";
+        String resultado = orc.toString();
+        
+        assertEquals(esperado, resultado);
+    }
+    
+    @Test
+    public void orcToStringAposAtaque() {
+        Orc orc = new Orc();
+        Elfo e = new Elfo("Teste");
+        
+        e.atirarFlecha(orc);
+        String esperado = "Vida Atual: 100";
+        String resultado = orc.toString();
+        
+        assertEquals(esperado, resultado);
+    }
+    
+    @Test
+    public void orcToStringAposSuaMorte() {
+        Orc orc = new Orc();
+        Elfo e = new Elfo("Teste");
+        
+        e.atirarFlecha(orc);
+        e.atirarFlecha(orc);
+        e.atirarFlecha(orc);
+        e.atirarFlecha(orc);
+        e.atirarFlecha(orc);
+        e.atirarFlecha(orc);
+        e.atirarFlecha(orc);
+        e.atirarFlecha(orc);
+        e.atirarFlecha(orc);
+        e.atirarFlecha(orc);
+        e.atirarFlecha(orc);
+        e.atirarFlecha(orc);
+        String esperado = "Vida Atual: 0";
+        String resultado = orc.toString();
+        
+        assertEquals(esperado, resultado);
+    }
+    
     /**
      * Define a .
      *

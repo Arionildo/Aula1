@@ -1,7 +1,7 @@
 #BlueJ class context
 comment0.params=novoNome\ novoflechas
 comment0.target=Elfo(java.lang.String,\ int)
-comment0.text=\r\n\ COnstrutor\ para\ objetos\ da\ classe\ Elfo\r\n
+comment0.text=\r\n\ Construtor\ para\ objetos\ da\ classe\ Elfo\r\n
 comment1.params=novoNome
 comment1.target=Elfo(java.lang.String)
 comment2.params=
@@ -16,4 +16,6 @@ comment6.params=novoExp
 comment6.target=void\ setExp(int)
 comment7.params=
 comment7.target=int\ getExperiencia()
-numComments=8
+comment8.params=
+comment8.target=java.lang.String\ toString()
+numComments=9
