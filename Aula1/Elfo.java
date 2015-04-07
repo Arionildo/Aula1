@@ -41,7 +41,7 @@ public class Elfo
     }
     
     public int atirarFlecha(Orc orc){
-        if (flechas > 0 && orc.getVida() > 0) {            
+        if (flechas > 0 && orc.getStatus() == Status.VIVO) {            
             flechas--;
             orc.diminuirVida(danoFlechas);
             setExp(7);

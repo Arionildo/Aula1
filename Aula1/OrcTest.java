@@ -41,7 +41,7 @@ public class OrcTest
     
     @Test
     public void orcToStringAposAtaque() {
-        Orc orc = new Orc();
+        Orc orc = new Orc("Teste2");
         Elfo e = new Elfo("Teste");
         
         e.atirarFlecha(orc);
@@ -53,7 +53,7 @@ public class OrcTest
     
     @Test
     public void orcToStringAposSuaMorte() {
-        Orc orc = new Orc();
+        Orc orc = new Orc("Teste2");
         Elfo e = new Elfo("Teste");
         
         e.atirarFlecha(orc);
@@ -72,6 +72,31 @@ public class OrcTest
         String resultado = orc.toString();
         
         assertEquals(esperado, resultado);
+    }
+    
+    @Test
+    public void orcComNumeroGeradoNegativo() {
+        Orc o = new Orc("Tom");
+        Elfo e = new Elfo("Teste");
+        int vidaEsperada = 110;
+        int expEsperada = 2;
+        
+        e.atirarFlecha(o);
+        assertEquals(vidaEsperada, o.getVida());
+        assertEquals(expEsperada, o.getExperiencia());
+    }
+    
+    @Test
+    public void orcComNumeroGeradoEntre0e100() {
+        Orc o = new Orc("Tom");
+        Elfo e = new Elfo("Teste");
+        int vidaEsperada = 100;
+        int expEsperada = 2;
+        
+        o.setExp(2);
+        e.atirarFlecha(o);
+        assertEquals(vidaEsperada, o.getVida());
+        assertEquals(expEsperada, o.getExperiencia());
     }
     
     /**

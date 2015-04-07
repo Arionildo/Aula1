@@ -97,8 +97,8 @@ public class ElfoTest
     public void elfoAtacaOrcsDiferentes() {
         String nome = "Teste1";
         Elfo e = new Elfo(nome);
-        Orc oA = new Orc();
-        Orc oB = new Orc();
+        Orc oA = new Orc("Teste2");
+        Orc oB = new Orc("Teste3");
         int vidaOrcA = 100;
         int vidaOrcB = 100;
         int expEsperado = 14;
@@ -117,7 +117,7 @@ public class ElfoTest
     public void elfoMataOrc() {
         String nome = "Teste1";
         Elfo e = new Elfo(nome);
-        Orc o = new Orc();
+        Orc o = new Orc("Teste2");
         int flechasEsperadas = 31;
         int vidaOrcEsperada = 0;
         
@@ -183,7 +183,7 @@ public class ElfoTest
     @Test
     public void elfoToStringAposMatarOrc() {
         Elfo e = new Elfo("Teste2");
-        Orc o = new Orc();
+        Orc o = new Orc("Teste2");
         String esperado = "Teste2 possui 31 flechas e 77 níveis de experiência.";
         
         e.atirarFlecha(o);
