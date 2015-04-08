@@ -11,6 +11,7 @@ public class Orc
     private int vida, experiencia;
     private String nome;
     private Status status;
+    private ItemDoInventario item;
 
     /**
      * Construtor para objetos da classe Orc

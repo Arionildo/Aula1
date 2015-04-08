@@ -9,7 +9,7 @@ import org.junit.Test;
  * A classe de teste ElfoTest.
  *
  * @author  Arionildo.Escouto
- * @version 06/04/2015
+ * @version 07/04/2015
  */
 public class ElfoTest
 {

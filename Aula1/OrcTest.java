@@ -9,7 +9,7 @@ import org.junit.Test;
  * A classe de teste OrcTest.
  *
  * @author  Arionildo.Escouto
- * @version 06/04/2015
+ * @version 07/04/2015
  */
 public class OrcTest
 {
@@ -81,19 +81,6 @@ public class OrcTest
         int vidaEsperada = 110;
         int expEsperada = 2;
         
-        e.atirarFlecha(o);
-        assertEquals(vidaEsperada, o.getVida());
-        assertEquals(expEsperada, o.getExperiencia());
-    }
-    
-    @Test
-    public void orcComNumeroGeradoEntre0e100() {
-        Orc o = new Orc("Tom");
-        Elfo e = new Elfo("Teste");
-        int vidaEsperada = 100;
-        int expEsperada = 2;
-        
-        o.setExp(2);
         e.atirarFlecha(o);
         assertEquals(vidaEsperada, o.getVida());
         assertEquals(expEsperada, o.getExperiencia());
