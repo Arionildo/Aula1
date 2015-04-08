@@ -112,6 +112,62 @@ public class OrcTest
         assertEquals(inventarioEsperado, o.getItens());
     }
     
+    @Test
+    public void verDescricaoDeInventarioVazio() {
+        Orc o = new Orc();
+        String descricaoObtida = o.getDescricaoItens();
+        String descricaoEsperada = "A lista está vazia";
+        
+        assertEquals(descricaoEsperada, descricaoObtida);
+    }
+    
+    @Test
+    public void verDescricaoDeInventarioComUmItem() {
+        Orc o = new Orc();
+        ItemDoInventario item01 = new ItemDoInventario("Cura", 5);
+        
+        o.adicionarItem(item01);
+        String descricaoObtida = o.getDescricaoItens();
+        String descricaoEsperada = "Cura";
+        
+        assertEquals(descricaoEsperada, descricaoObtida);
+    }
+    
+    @Test
+    public void verDescricaoDeInventarioComVariosItens() {
+        Orc o = new Orc();
+        ItemDoInventario item01 = new ItemDoInventario("Cura", 5);
+        ItemDoInventario item02 = new ItemDoInventario("Mana", 5);
+        ItemDoInventario item03 = new ItemDoInventario("Machado", 5);
+        
+        o.adicionarItem(item01);
+        o.adicionarItem(item02);
+        o.adicionarItem(item03);
+        
+        String descricaoObtida = o.getDescricaoItens();
+        String descricaoEsperada = "Cura,Mana,Machado";
+        
+        assertEquals(descricaoEsperada, descricaoObtida);
+    }
+    
+    @Test
+    public void orcComSorte() {
+        Orc o = new Orc("Mini");
+        ItemDoInventario item01 = new ItemDoInventario("Poção", 5);
+        ItemDoInventario item02 = new ItemDoInventario("Mana", 8);
+        int esperado1 = 1005;
+        int esperado2 = 1008;
+        
+        o.adicionarItem(item01);
+        o.adicionarItem(item02);
+        o.setExp(3);
+        o.setStatus(6);
+        o.tentarSorte();
+        
+        assertEquals(esperado1, item01.getQuantidade());
+        assertEquals(esperado2, item02.getQuantidade());
+    }
+    
     /**
      * Define a .
      *

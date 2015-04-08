@@ -35,4 +35,10 @@ public class Contador
             System.out.println(i);
         }
     }
+    
+    public void contarRegressivamenteAteN(int n) {
+        for (int i = n; i >= 1; i--) {
+            System.out.println(i);
+        }
+    }
 }

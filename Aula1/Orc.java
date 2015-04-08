@@ -16,6 +16,7 @@ public class Orc
     private String nome;
     private Status status;
     private ArrayList<ItemDoInventario> item = new ArrayList<ItemDoInventario>();
+    private final int NUMERO_SORTE = 3481;
 
     /**
      * Construtor para objetos da classe Orc
@@ -124,5 +125,31 @@ public class Orc
     
     public ArrayList<ItemDoInventario> getItens(){
         return this.item;
+    }
+    
+    public String getDescricaoItens() {
+        String listaDescricoes = this.item.isEmpty() ? "A lista está vazia" : this.item.get(0).getDescricao();
+        
+        for (int i = 1; i < this.item.size(); i++) {
+            if (this.item.size() - 2 < this.item.size() - 1) {
+                listaDescricoes += ",";
+                listaDescricoes += this.item.get(i).getDescricao();
+            } else {
+                listaDescricoes += this.item.get(i).getDescricao();
+            }
+        }
+        
+        return listaDescricoes;
+    }
+    
+    public void tentarSorte() {
+        if (gerarNumero() == NUMERO_SORTE) {
+            for (int i = 0; i < this.item.size(); i++) {
+                int antigaQuantidade = this.item.get(i).getQuantidade();
+                int novaQuantidade = antigaQuantidade + 1000;
+                
+                this.item.get(i).setQuantidade(novaQuantidade);
+            }
+        }
     }
 }
