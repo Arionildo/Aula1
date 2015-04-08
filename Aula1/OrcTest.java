@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import java.util.ArrayList;
 
 /**
  * A classe de teste OrcTest.
@@ -84,6 +85,31 @@ public class OrcTest
         e.atirarFlecha(o);
         assertEquals(vidaEsperada, o.getVida());
         assertEquals(expEsperada, o.getExperiencia());
+    }
+    
+    @Test
+    public void orcGanhaUmItem() {
+        Orc o = new Orc();
+        ItemDoInventario item = new ItemDoInventario("Cura", 5);
+        ArrayList<ItemDoInventario> inventarioEsperado = new ArrayList<ItemDoInventario>();
+        
+        o.adicionarItem(item);
+        inventarioEsperado.add(item);
+        assertEquals(inventarioEsperado, o.getItens());
+    }
+    
+    @Test
+    public void orcGanhaMaisItens() {
+        Orc o = new Orc();
+        ItemDoInventario item01 = new ItemDoInventario("Cura", 5);
+        ItemDoInventario item02 = new ItemDoInventario("Mana", 5);
+        ArrayList<ItemDoInventario> inventarioEsperado = new ArrayList<ItemDoInventario>();
+        
+        o.adicionarItem(item01);
+        o.adicionarItem(item02);
+        inventarioEsperado.add(item01);
+        inventarioEsperado.add(item02);
+        assertEquals(inventarioEsperado, o.getItens());
     }
     
     /**

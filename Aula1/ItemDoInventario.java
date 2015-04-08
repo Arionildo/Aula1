@@ -3,7 +3,7 @@
  * Representa um item no inventário.
  * 
  * @author  Arionildo.Escouto
- * @version 07/04/2015
+ * @version 08/04/2015
  */
 public class ItemDoInventario
 {
@@ -14,10 +14,7 @@ public class ItemDoInventario
         this.descricao = novaDescricao;
         this.quantidade = novaQuantidade;
     }
-    
-    public ItemDoInventario() {
-    }
-    
+        
     public void setDescricao(String novaDescricao) {
         this.descricao = novaDescricao;
     }

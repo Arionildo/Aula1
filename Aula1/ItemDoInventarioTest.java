@@ -22,12 +22,10 @@ public class ItemDoInventarioTest
     
     @Test
     public void itemCriadoComQuantidadeEDescricao() {
-        ItemDoInventario i = new ItemDoInventario();
+        ItemDoInventario i = new ItemDoInventario("Item de cura", 5);
         int quantidadeEsperada = 5;
         String descricaoEsperada = "Item de cura";
         
-        i.setQuantidade(5);
-        i.setDescricao("Item de cura");
         assertEquals(quantidadeEsperada, i.getQuantidade());
         assertEquals(descricaoEsperada, i.getDescricao());
     }

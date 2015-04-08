@@ -3,15 +3,19 @@
  * Escreva a descrição da classe Orc aqui.
  * 
  * @author  Arionildo.Escouto
- * @version 06/04/2015
+ * @version 08/04/2015
  */
+
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class Orc
 {
     // variáveis de instância - substitua o exemplo abaixo pelo seu próprio
     private int vida, experiencia;
     private String nome;
     private Status status;
-    private ItemDoInventario item;
+    private ArrayList<ItemDoInventario> item = new ArrayList<ItemDoInventario>();
 
     /**
      * Construtor para objetos da classe Orc
@@ -108,5 +112,17 @@ public class Orc
         }
         
         return numero;
+    }
+    
+    public void adicionarItem(ItemDoInventario i) {
+        this.item.add(i);
+    }
+    
+    public void perderItem(ItemDoInventario i) {
+        this.item.remove(i);
+    }
+    
+    public ArrayList<ItemDoInventario> getItens(){
+        return this.item;
     }
 }
