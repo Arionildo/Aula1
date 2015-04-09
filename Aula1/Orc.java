@@ -3,7 +3,7 @@
  * Escreva a descrição da classe Orc aqui.
  * 
  * @author  Arionildo.Escouto
- * @version 08/04/2015
+ * @version 09/04/2015
  */
 
 import java.util.ArrayList;
@@ -151,5 +151,23 @@ public class Orc
                 this.item.get(i).setQuantidade(novaQuantidade);
             }
         }
+    }
+    
+    public ItemDoInventario getItemComMaiorQuantidade() {
+        boolean temItens = !this.item.isEmpty();
+        int tamanhoDoInventario = this.item.size();
+        ItemDoInventario maiorQuantidade = null;
+        
+        if (temItens) {
+            maiorQuantidade = this.item.get(0);
+            for (int i = 1; i < tamanhoDoInventario; i++) {
+                ItemDoInventario it = this.item.get(i);
+                int quantidadeItem = it.getQuantidade();
+                
+                if (quantidadeItem > maiorQuantidade.getQuantidade()) maiorQuantidade = it;
+            }
+        }
+        
+        return maiorQuantidade;
     }
 }

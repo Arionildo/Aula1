@@ -10,7 +10,7 @@ import java.util.ArrayList;
  * A classe de teste OrcTest.
  *
  * @author  Arionildo.Escouto
- * @version 07/04/2015
+ * @version 09/04/2015
  */
 public class OrcTest
 {
@@ -166,6 +166,55 @@ public class OrcTest
         
         assertEquals(esperado1, item01.getQuantidade());
         assertEquals(esperado2, item02.getQuantidade());
+    }
+    
+    @Test
+    public void pegarItemComMaiorQuantidadeNormal() {
+        Orc o = new Orc("Mini");
+        ItemDoInventario item01 = new ItemDoInventario("Poção", 5);
+        ItemDoInventario item02 = new ItemDoInventario("Mana", 8);
+        ItemDoInventario esperado = item02;
+        
+        o.adicionarItem(item01);
+        o.adicionarItem(item02);
+        
+        assertEquals(esperado, o.getItemComMaiorQuantidade());
+    }
+    
+    @Test
+    public void pegarItemComMaiorQuantidadeInvertido() {
+        Orc o = new Orc("Mini");
+        ItemDoInventario item01 = new ItemDoInventario("Mana", 8);
+        ItemDoInventario item02 = new ItemDoInventario("Poção", 5);
+        ItemDoInventario esperado = item01;
+        
+        o.adicionarItem(item01);
+        o.adicionarItem(item02);
+        
+        assertEquals(esperado, o.getItemComMaiorQuantidade());
+    }
+    
+    @Test
+    public void pegarItensIguaisComMaiorQuantidade() {
+        Orc o = new Orc("Mini");
+        ItemDoInventario item01 = new ItemDoInventario("Mana", 8);
+        ItemDoInventario item02 = new ItemDoInventario("Pergaminho do Fogo", 8);
+        ItemDoInventario item03 = new ItemDoInventario("Poção", 5);
+        ItemDoInventario esperado = item01;
+        
+        o.adicionarItem(item01);
+        o.adicionarItem(item02);
+        o.adicionarItem(item03);
+        
+        assertEquals(esperado, o.getItemComMaiorQuantidade());
+    }
+    
+    @Test
+    public void pegarItemComMaiorQuantidadeDeInventarioVazio() {
+        Orc o = new Orc("Mini");
+        ItemDoInventario esperado = null;
+        
+        assertEquals(esperado, o.getItemComMaiorQuantidade());
     }
     
     /**
