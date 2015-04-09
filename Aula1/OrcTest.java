@@ -217,6 +217,57 @@ public class OrcTest
         assertEquals(esperado, o.getItemComMaiorQuantidade());
     }
     
+    @Test
+    public void orcOrdenaUmItem() {
+        Orc o = new Orc("Mini");
+        ItemDoInventario item01 = new ItemDoInventario("Pergaminho do Fogo", 2);
+        String esperado = "Pergaminho do Fogo";
+        
+        o.adicionarItem(item01);
+        o.ordenarItens();
+        
+        assertEquals(esperado, o.getDescricaoItens());
+    }
+    
+    @Test
+    public void orcOrdenaDoisItens() {
+        Orc o = new Orc("Mini");
+        ItemDoInventario item01 = new ItemDoInventario("Mana", 0);
+        ItemDoInventario item02 = new ItemDoInventario("Pergaminho do Fogo", 2);
+        String esperado = "Mana,Pergaminho do Fogo";
+        
+        o.adicionarItem(item01);
+        o.adicionarItem(item02);
+        o.ordenarItens();
+        
+        assertEquals(esperado, o.getDescricaoItens());
+    }
+    
+    @Test
+    public void orcOrdenaTresItens() {
+        Orc o = new Orc("Mini");
+        ItemDoInventario item01 = new ItemDoInventario("Mana", 0);
+        ItemDoInventario item02 = new ItemDoInventario("Pergaminho do Fogo", -2);
+        ItemDoInventario item03 = new ItemDoInventario("Poção", 1);
+        String esperado = "Pergaminho do Fogo,Mana,Poção";
+        
+        o.adicionarItem(item01);
+        o.adicionarItem(item02);
+        o.adicionarItem(item03);
+        o.ordenarItens();
+        
+        assertEquals(esperado, o.getDescricaoItens());
+    }
+    
+    @Test
+    public void orcOrdenaItemDeInventarioVazio() {
+        Orc o = new Orc("Mini");
+        String esperado = "A lista está vazia";
+        o.ordenarItens();
+        
+        assertEquals(esperado, o.getDescricaoItens());
+    }
+    
     /**
      * Define a .
      *
