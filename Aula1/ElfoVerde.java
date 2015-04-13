@@ -1,15 +1,19 @@
-
+import java.util.Arrays;
 /**
  * Escreva a descrição da classe ElfoVerde aqui.
  * 
  * @author  Arionildo.Escouto
- * @version 10/04/2015
+ * @version 13/04/2015
  */
 public class ElfoVerde extends Elfo
 {
     private int multiplicadorDeExperiencia = 2;
+    private final String[] ITENS_PERMITIDOS = new String[] {
+        "Espada de Aço Valiriano",
+        "Arco e Flecha de Vidro"
+    };
 
-    /**
+   /**
      * Construtor de Elfo's com nome e flechas
      */
     public ElfoVerde(String novoNome, int novoflechas)
@@ -36,5 +40,12 @@ public class ElfoVerde extends Elfo
         }
         
         return orc.getVida();
+    }
+    
+    @Override
+    protected void adicionarItem(ItemDoInventario i) {
+        boolean ehUmItemValido = i != null && Arrays.asList(ITENS_PERMITIDOS).contains(i.getDescricao());
+       
+        if (ehUmItemValido) this.item.add(i);
     }
 }

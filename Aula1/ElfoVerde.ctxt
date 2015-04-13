@@ -7,4 +7,6 @@ comment1.target=ElfoVerde(java.lang.String)
 comment1.text=\r\n\ Construtor\ de\ Elfo's\ com\ nome\r\n
 comment2.params=orc
 comment2.target=int\ atirarFlecha(Orc)
-numComments=3
+comment3.params=i
+comment3.target=void\ adicionarItem(ItemDoInventario)
+numComments=4
