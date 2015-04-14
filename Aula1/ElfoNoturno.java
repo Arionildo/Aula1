@@ -28,14 +28,15 @@ public class ElfoNoturno extends Elfo
     }
     
     @Override
-    public int atirarFlecha(Orc orc){
+    public double atirarFlecha(Orc orc){
         if (flechas > 0 && orc.getStatus() == Status.VIVO) {
-            int diminuirVida = (int) (this.vida * 0.05);
+            double diminuirVida = this.vida * 0.05;
             
             flechas--;
             orc.diminuirVida(danoFlechas);
             setExp(7 * multiplicadorDeExperiencia);
             this.vida -= diminuirVida;
+            if (((int) this.getVida()) == 0) this.setStatus(1);
         }
         
         return orc.getVida();

@@ -1,5 +1,3 @@
-
-
 import static org.junit.Assert.*;
 import org.junit.After;
 import org.junit.Before;
@@ -9,7 +7,7 @@ import org.junit.Test;
  * A classe de teste ElfoTest.
  *
  * @author  Arionildo.Escouto
- * @version 07/04/2015
+ * @version 14/04/2015
  */
 public class ElfoTest
 {
@@ -73,7 +71,6 @@ public class ElfoTest
         assertEquals(flechasEsperadas, e.getFlechas());
     }
     
-    
     /**
      * 
      * TESTES DE ATAQUE
@@ -109,8 +106,8 @@ public class ElfoTest
         
         assertEquals(expEsperado, e.getExperiencia());
         assertEquals(flechasEsperadas, e.getFlechas());
-        assertEquals(vidaOrcA, oA.getVida());
-        assertEquals(vidaOrcB, oB.getVida());
+        assertEquals(vidaOrcA, oA.getVida(), 0.1);
+        assertEquals(vidaOrcB, oB.getVida(), 0.1);
     }
     
     @Test
@@ -119,7 +116,7 @@ public class ElfoTest
         Elfo e = new Elfo(nome);
         Orc o = new Orc("Teste2");
         int flechasEsperadas = 31;
-        int vidaOrcEsperada = 0;
+        double vidaOrcEsperada = 0;
         
         e.atirarFlecha(o);
         e.atirarFlecha(o);
@@ -134,7 +131,7 @@ public class ElfoTest
         e.atirarFlecha(o);
         e.atirarFlecha(o);
         
-        assertEquals(vidaOrcEsperada, o.getVida());
+        assertEquals(vidaOrcEsperada, o.getVida(), 0.1);
         assertEquals(flechasEsperadas, e.getFlechas());
     }
     
@@ -153,7 +150,6 @@ public class ElfoTest
         assertEquals(expEsperado, e.getExperiencia());
         assertEquals(flechasEsperadas, e.getFlechas());
     }
-    
     
     /**
      * 
@@ -202,23 +198,31 @@ public class ElfoTest
         assertEquals(esperado, e.toString());
     }
     
-    /**
-     * Define a .
-     *
-     * Chamado antes de cada método de caso de teste.
-     */
-    @Before
-    public void setUp()
-    {
+    @Test
+    public void contadorDeTresElfosDaMesmaRaca() {
+        Elfo.resetContagem();
+        Elfo e1 = new Elfo("A");
+        Elfo e2 = new Elfo("B");
+        Elfo e3 = new Elfo("C");
+        
+        int contagemEsperada = 3;
+        int contagemObtida = Elfo.getContagem();
+        
+        assertEquals(contagemEsperada, contagemObtida);
+        Elfo.resetContagem();
     }
-
-    /**
-     * Tears down the test fixture.
-     *
-     * Chamado após cada método de teste de caso.
-     */
-    @After
-    public void tearDown()
-    {
+    
+    @Test
+    public void contadorDeQuatroElfosDeRacasDiferentes() {
+        Elfo.resetContagem();
+        Elfo e = new Elfo("A");
+        Elfo ev1 = new ElfoVerde("B");
+        Elfo en = new ElfoNoturno("C");
+        ElfoVerde ev2 = new ElfoVerde("D");
+        
+        int contagemEsperada = 4;
+        int contagemObtida = Elfo.getContagem();
+        
+        assertEquals(contagemEsperada, contagemObtida);
     }
 }

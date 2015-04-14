@@ -32,7 +32,7 @@ public class ElfoVerde extends Elfo
     }
     
     @Override
-    public int atirarFlecha(Orc orc){
+    public double atirarFlecha(Orc orc){
         if (flechas > 0 && orc.getStatus() == Status.VIVO) {            
             flechas--;
             orc.diminuirVida(danoFlechas);

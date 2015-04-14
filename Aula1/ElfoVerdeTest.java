@@ -55,7 +55,7 @@ public class ElfoVerdeTest
     }
     
     @Test
-    public void elfoVerdeAdicionaMaisItenPermitidos() {
+    public void elfoVerdeAdicionaMaisItensPermitidos() {
         ElfoVerde ev = new ElfoVerde("Teste1");
         ItemDoInventario espada = new ItemDoInventario("Espada de Aço Valiriano", 1);
         ItemDoInventario arco01 = new ItemDoInventario("Arco e Flecha de Vidro", 2);

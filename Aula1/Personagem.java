@@ -10,11 +10,12 @@ import java.util.Arrays;
 public abstract class Personagem
 {
     protected Status status = Status.VIVO;
-    protected int vida, experiencia;
+    protected double vida;
+    protected int experiencia;
     protected String nome;
     protected ArrayList<ItemDoInventario> item = new ArrayList<ItemDoInventario>();    
     
-    protected Personagem(int vida) {
+    protected Personagem(double vida) {
         this.vida = vida;
         this.nome = "";
     }
@@ -42,7 +43,7 @@ public abstract class Personagem
     /**
      * Mostra a vida atual do Personagem
      */
-    protected int getVida() {
+    protected double getVida() {
         return this.vida;
     }
     

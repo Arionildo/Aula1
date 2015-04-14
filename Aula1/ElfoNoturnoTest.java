@@ -45,11 +45,11 @@ public class ElfoNoturnoTest
     public void elfoNoturnoPerdeVidaAoAtacar() {
         ElfoNoturno en = new ElfoNoturno("Teste1");
         Orc o = new Orc("Teste2");
-        int vidaEsperada = 95;
+        double vidaEsperada = 95;
         
         en.atirarFlecha(o);
         
-        assertEquals(vidaEsperada, en.getVida());
+        assertEquals(vidaEsperada, en.getVida(), 0.1);
     }
     
     @Test

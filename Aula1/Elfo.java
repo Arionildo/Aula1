@@ -2,12 +2,13 @@
  * Escreva a descrição da classe Elfo aqui.
  * 
  * @author  Arionildo.Escouto
- * @version 10/04/2015
+ * @version 14/04/2015
  */
 public class Elfo extends Personagem
 {
     protected int flechas;
     protected final int danoFlechas = 10;
+    private static int contador;
 
     /**
      * Construtor para objetos da classe Elfo
@@ -23,9 +24,22 @@ public class Elfo extends Personagem
         super(100);
         this.nome = novoNome;
         this.flechas = 42;
+        setContagem();
     }
     
-    public int atirarFlecha(Orc orc){
+    public void setContagem() {
+        contador++;
+    }
+    
+    public static void resetContagem() {
+        contador = 0;
+    }
+    
+    public static int getContagem() {
+        return contador;
+    }
+    
+    public double atirarFlecha(Orc orc){
         if (flechas > 0 && orc.getStatus() == Status.VIVO) {            
             flechas--;
             orc.diminuirVida(danoFlechas);

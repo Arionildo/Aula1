@@ -6,5 +6,5 @@ comment1.params=novoNome
 comment1.target=ElfoNoturno(java.lang.String)
 comment1.text=\r\n\ Construtor\ de\ Elfo's\ Noturnos\ com\ nome\r\n
 comment2.params=orc
-comment2.target=int\ atirarFlecha(Orc)
+comment2.target=double\ atirarFlecha(Orc)
 numComments=3

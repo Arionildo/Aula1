@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.params=vida
-comment0.target=Personagem(int)
+comment0.target=Personagem(double)
 comment1.params=
 comment1.target=Status\ getStatus()
 comment1.text=\r\n\ Retorna\ o\ estado\ do\ Personagem\r\n
@@ -15,7 +15,7 @@ comment13.target=void\ ordenarItens()
 comment2.params=indice
 comment2.target=void\ setStatus(int)
 comment3.params=
-comment3.target=int\ getVida()
+comment3.target=double\ getVida()
 comment3.text=\r\n\ Mostra\ a\ vida\ atual\ do\ Personagem\r\n
 comment4.params=novoExp
 comment4.target=void\ setExp(int)
