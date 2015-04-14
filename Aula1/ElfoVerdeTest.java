@@ -20,13 +20,13 @@ public class ElfoVerdeTest
     
     @Test
     public void elfoVerdeGanhaDobroDeExperienciaMatandoUmOrc() {
-        ElfoVerde e = new ElfoVerde("Teste1");
+        ElfoVerde ev = new ElfoVerde("Teste1");
         Orc o = new Orc("Teste2");
         int experienciaEsperada = 14;
         
-        e.atirarFlecha(o);
+        ev.atirarFlecha(o);
         
-        assertEquals(experienciaEsperada, e.getExperiencia());
+        assertEquals(experienciaEsperada, ev.getExperiencia());
     }
     
     @Test

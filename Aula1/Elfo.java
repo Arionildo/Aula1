@@ -20,7 +20,7 @@ public class Elfo extends Personagem
     
     public Elfo(String novoNome)
     {
-        super(60);
+        super(100);
         this.nome = novoNome;
         this.flechas = 42;
     }

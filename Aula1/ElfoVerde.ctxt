@@ -1,10 +1,10 @@
 #BlueJ class context
 comment0.params=novoNome\ novoflechas
 comment0.target=ElfoVerde(java.lang.String,\ int)
-comment0.text=\r\n\ Construtor\ de\ Elfo's\ com\ nome\ e\ flechas\r\n
+comment0.text=\r\n\ Construtor\ de\ Elfo's\ Verdes\ com\ nome\ e\ flechas\r\n
 comment1.params=novoNome
 comment1.target=ElfoVerde(java.lang.String)
-comment1.text=\r\n\ Construtor\ de\ Elfo's\ com\ nome\r\n
+comment1.text=\r\n\ Construtor\ de\ Elfo's\ Verdes\ com\ nome\r\n
 comment2.params=orc
 comment2.target=int\ atirarFlecha(Orc)
 comment3.params=i

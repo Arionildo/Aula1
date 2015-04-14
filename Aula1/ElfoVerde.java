@@ -14,7 +14,7 @@ public class ElfoVerde extends Elfo
     };
 
    /**
-     * Construtor de Elfo's com nome e flechas
+     * Construtor de Elfo's Verdes com nome e flechas
      */
     public ElfoVerde(String novoNome, int novoflechas)
     {
@@ -22,7 +22,7 @@ public class ElfoVerde extends Elfo
     }
     
     /**
-     * Construtor de Elfo's com nome
+     * Construtor de Elfo's Verdes com nome
      */
     public ElfoVerde(String novoNome)
     {
