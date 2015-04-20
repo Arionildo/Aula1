@@ -3,7 +3,7 @@
  * Escreva a descrição da classe ElfoNoturno aqui.
  * 
  * @author  Arionildo.Escouto
- * @version 13/04/2015
+ * @version 20/04/2015
  */
 public class ElfoNoturno extends Elfo
 {
@@ -35,6 +35,7 @@ public class ElfoNoturno extends Elfo
             flechas--;
             orc.diminuirVida(danoFlechas);
             setExp(7 * multiplicadorDeExperiencia);
+            setStatus(3);
             this.vida -= diminuirVida;
             if (((int) this.getVida()) == 0) this.setStatus(1);
         }

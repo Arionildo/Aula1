@@ -8,7 +8,7 @@ import java.util.*;
  * A classe de teste ExercitoElfosTest.
  *
  * @author  Arionildo.Escouto
- * @version 15/04/2015
+ * @version 20/04/2015
  */
 public class ExercitoElfosTest
 {
@@ -119,27 +119,27 @@ public class ExercitoElfosTest
     //CONCLUIR
     @Test
     public void agruparElfosPorStatus() {
-        ElfoVerde e1 = new ElfoVerde("A");
-        ElfoNoturno e2 = new ElfoNoturno("B");
-        ElfoVerde e3 = new ElfoVerde("C");
-        ElfoVerde eAtacando1 = new ElfoVerde("D");
-        ElfoVerde eAtacando2 = new ElfoVerde("E");
-        eAtacando1.atirarFlecha(new Orc());
-        eAtacando2.atirarFlecha(new Orc());
+        ElfoVerde elfoVivo1 = new ElfoVerde("A");
+        ElfoNoturno elfoVivo2 = new ElfoNoturno("Aa");
+        ElfoVerde elfoVivo3 = new ElfoVerde("BB");
+        ElfoVerde elfoAtacando1 = new ElfoVerde("B");
+        ElfoVerde elfoAtacando2 = new ElfoVerde("C");
+        elfoAtacando1.atirarFlecha(new Orc());
+        elfoAtacando2.atirarFlecha(new Orc());
         HashMap<Status, ArrayList<Elfo>> esperado = new HashMap<>();
-        esperado.put(Status.ATACANDO, new ArrayList<>(
-            Arrays.asList(eAtacando1, eAtacando2)
+        esperado.put(Status.ATACANDO, new ArrayList<Elfo>(
+            Arrays.asList(elfoAtacando1, elfoAtacando2)
         ));
         esperado.put(Status.VIVO, new ArrayList<>(
-            Arrays.asList(e2, e3, e1)
+            Arrays.asList(elfoVivo3, elfoVivo2, elfoVivo1)
         ));
         ExercitoElfos exercito = new ExercitoElfos();
         try {
-            exercito.alistarElfo(eAtacando1);
-            exercito.alistarElfo(eAtacando2);
-            exercito.alistarElfo(e1);
-            exercito.alistarElfo(e2);
-            exercito.alistarElfo(e3);
+            exercito.alistarElfo(elfoAtacando1);
+            exercito.alistarElfo(elfoAtacando2);
+            exercito.alistarElfo(elfoVivo3);
+            exercito.alistarElfo(elfoVivo2);
+            exercito.alistarElfo(elfoVivo1);
         } catch (NaoPodeAlistarException erro) {
             System.out.println(erro);
         }

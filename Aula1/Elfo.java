@@ -2,7 +2,7 @@
  * Escreva a descrição da classe Elfo aqui.
  * 
  * @author  Arionildo.Escouto
- * @version 14/04/2015
+ * @version 20/04/2015
  */
 public class Elfo extends Personagem
 {
@@ -44,6 +44,7 @@ public class Elfo extends Personagem
             flechas--;
             orc.diminuirVida(danoFlechas);
             setExp(7);
+            setStatus(3);
         }
         
         return orc.getVida();

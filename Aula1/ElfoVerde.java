@@ -3,7 +3,7 @@ import java.util.Arrays;
  * Escreva a descrição da classe ElfoVerde aqui.
  * 
  * @author  Arionildo.Escouto
- * @version 13/04/2015
+ * @version 20/04/2015
  */
 public class ElfoVerde extends Elfo
 {
@@ -37,6 +37,7 @@ public class ElfoVerde extends Elfo
             flechas--;
             orc.diminuirVida(danoFlechas);
             setExp(7 * multiplicadorDeExperiencia);
+            setStatus(3);
         }
         
         return orc.getVida();
