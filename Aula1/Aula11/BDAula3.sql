@@ -1,4 +1,5 @@
---select * from Empregado;
+--@Author Arionildo.Escouto
+--@Version 22/04/2015
 
 
 
@@ -114,7 +115,6 @@ select
 	DATEADD(YEAR, 50, DataNascimento) "Completa 50 anos",
 	DATENAME(weekday, DATEADD(YEAR, 50, DataNascimento)) "Dia da Semana"
 from Associado;
-
 /*
 select
 	Nome,
