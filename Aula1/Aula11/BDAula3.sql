@@ -107,6 +107,15 @@ where LEN(Nome) =
 		MAX(LEN(Nome))
      from Associado);
 
+	 
+select
+	Nome,
+	DataNascimento,
+	DATEADD(YEAR, 50, DataNascimento) "Completa 50 anos",
+	DATENAME(weekday, DATEADD(YEAR, 50, DataNascimento)) "Dia da Semana"
+from Associado;
+
+/*
 select
 	Nome,
 	(DATEPART(YEAR, DataNascimento) + 50) [Completa 50 anos],
@@ -119,5 +128,5 @@ select
 		when DATEPART(DW, (DATEPART(YEAR, DataNascimento) + 50)) = 6 then 'Sexta-Feira'
 		else 'Sábado'
 	end [Dia da Semana]
-from Associado;
+from Associado;*/
 --Fim Exercícios 2
