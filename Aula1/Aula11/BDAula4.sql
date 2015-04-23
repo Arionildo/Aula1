@@ -102,3 +102,22 @@ where
 	e.IDDepartamento = dEmp.IDDepartamento and
 	g.IDEmpregado = e.IDGerente and
 	g.IDDepartamento = dGer.IDDepartamento;
+	
+	
+update EmpregadoAux
+set Salario = Salario+(Salario*0.145)
+where IDEmpregado in (
+	Select e.IDEmpregado
+	From EmpregadoAux e
+	INNER JOIN Departamento d ON e.IDDepartamento = d.IDDepartamento
+	where d.Localizacao = 'SAO PAULO');
+select * from EmpregadoAux;
+
+
+select
+	isnull(sum(emp.Salario), 0) "Salário Empregados",
+	isnull(sum(empAux.Salario), 0) "Salário EmpregadosAux",
+	isnull(sum(empAux.Salario), 0) - isnull(sum(emp.Salario), 0) "Diferença"
+from
+	Empregado emp,
+	EmpregadoAux empAux;

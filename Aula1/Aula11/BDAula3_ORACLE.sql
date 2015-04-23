@@ -63,6 +63,16 @@ USING (
 ON (A.IDCIDADE = B.IDCIDADE)
 WHEN MATCHED THEN UPDATE
 SET A.Nome = '*'+B.Nome;
+/*
+update Cidade
+set Nome = '*'+Nome
+where Nome in(
+				select UF, Nome
+				from Cidade
+				group by nome, UF
+				having count(1)>1
+			)
+*/
 
 
 select
@@ -96,9 +106,6 @@ insert into CidadeAux(
 );
 
 
-MERGE INTO t1 d
-USING t11 s
-ON (d.pk = s.pk)
-WHEN NOT MATCHED THEN
-INSERT (d.pk, d.i)
-VALUES (s.pk, s.i);
+alter table Cidade
+add constraint UK_Cidade_NomeUF
+unique(Nome, UF);
