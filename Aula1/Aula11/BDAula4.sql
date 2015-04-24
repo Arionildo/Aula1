@@ -160,3 +160,4 @@ from
 	Associado a,
 	Cidade c
 where a.IDCidade=c.IDCidade;
+--Fim Exercicios 3
