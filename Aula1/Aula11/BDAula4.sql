@@ -69,9 +69,11 @@ select
 	c.UF,
 	count(1) "Total de Cidades"
 from
-	Cidade c,
-	Associado a
-where a.IDCidade != c.IDCidade
+	Cidade c
+where not exists(
+		select 1
+		from Associado
+		where Associado.IDAssociado = c.IDCidade)
 group by c.UF;
 
 
@@ -121,3 +123,40 @@ select
 from
 	Empregado emp,
 	EmpregadoAux empAux;
+	
+	
+select top 1
+	d.NomeDepartamento,
+	isNull(MAX(e.Salario), 0) "Maior Salário"
+from
+	EmpregadoAux e,
+	Departamento d
+where e.IDDepartamento = d.IDDepartamento
+group by d.NomeDepartamento
+order by "Maior Salário" desc;
+
+
+select
+	a.Nome,
+	c.Nome "Cidade"
+from
+	Associado a,
+	Cidade c	
+where
+	a.IDCidade = c.IDCidade
+union all
+select
+	e.NomeEmpregado,
+	d.Localizacao
+from
+	Empregado e,
+	Departamento d
+where e.IDDepartamento = d.IDDepartamento;
+
+
+select
+	c.Nome
+from
+	Associado a,
+	Cidade c
+where a.IDCidade=c.IDCidade;
