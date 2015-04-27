@@ -79,3 +79,38 @@ select * from MaiorNroClientes, MenorNroClientes;
 
 
 --------------------------------------------------------------
+select
+	count(distinct ci.nome) "Total de Cidades"
+from
+	cidade ci,
+	Cliente cl,
+	Pedido p
+where
+	ci.IDCidade = cl.IDCidade and
+	cl.IDCliente = p.IDCliente;
+
+
+--------------------------------------------------------------
+select
+	p.Nome
+from
+	Produto p
+where not exists(
+		select 1
+		from ProdutoMaterial m
+		where p.IDProduto = m.IDProduto);
+
+
+-------------------------------------------------------------
+/*
+select
+	p.Nome,
+	p.PrecoCusto,
+	(select
+		isnull(sum(m.PrecoCusto), 0)
+	from Material m) "Total Custo Materiais"
+from
+	Produto p,
+	ProdutoMaterial m
+where p.IDProduto = m.IDProduto;
+*/
