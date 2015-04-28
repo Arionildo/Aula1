@@ -101,16 +101,37 @@ where not exists(
 		where p.IDProduto = m.IDProduto);
 
 
--------------------------------------------------------------
-/*
+--------------------------------------------------------------
 select
+	pm.IDProduto,
 	p.Nome,
-	p.PrecoCusto,
-	(select
-		isnull(sum(m.PrecoCusto), 0)
-	from Material m) "Total Custo Materiais"
+	sum(isnull(pm.Quantidade, 1) * m.PrecoCusto) "Custo Materiais"
 from
 	Produto p,
-	ProdutoMaterial m
-where p.IDProduto = m.IDProduto;
-*/
+	Material m,
+	ProdutoMaterial pm
+where
+	p.IDProduto = pm.IDProduto and
+	m.IDMaterial = pm.IDMaterial
+group by pm.IDProduto, p.Nome
+order by "Custo Materiais" desc;
+
+
+--------------------------------------------------------------
+--Continuar
+
+
+--------------------------------------------------------------
+select top 1
+		p.Nome,
+		count(1) "Maior Venda"
+	from
+		PedidoItem i,
+		Produto p
+	where p.IDProduto = i.IDProduto
+	group by p.Nome
+	order by "Maior Venda" desc;
+	
+	
+-------------------------------------------------------------
+create index IX_PedidoItem_Produto on PedidoItem(IDProduto)
