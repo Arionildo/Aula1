@@ -122,15 +122,18 @@ order by "Custo Materiais" desc;
 
 
 --------------------------------------------------------------
-select top 1
-		p.Nome,
-		count(1) "Maior Venda"
-	from
-		PedidoItem i,
-		Produto p
-	where p.IDProduto = i.IDProduto
-	group by p.Nome
-	order by "Maior Venda" desc;
+select
+	p.IDProduto,
+	p.Nome,
+	SUM(i.Quantidade) "Vendas"
+from 
+	Produto p,
+	PedidoItem i
+where p.IDProduto = i.IDProduto
+group by
+	p.IDProduto,
+	p.Nome
+order by "Vendas" desc;
 	
 	
 -------------------------------------------------------------
