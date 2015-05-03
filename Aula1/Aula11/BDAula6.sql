@@ -22,46 +22,63 @@ end;
 
 
 --Exercicio 2
-begin
-	select
-		ci.Nome,
-		ci.UF,
-		COUNT(1) "Quantidade"
-	from
-		Cidade ci,
-		Cliente cl
-	where ci.IDCidade = cl.IDCidade
-	group by
-		ci.Nome,
-		ci.UF
-	having COUNT(1) > 1
-end;
-/*
 BEGIN
+--PROPRIEDADES DO CURSOR
 	DECLARE ListaCidade CURSOR
 	Local
 	Fast_Forward
-	FOR Select Nome, Uf
-		From Cidade
-		Group by Nome, Uf
-		Having COUNT(1) > 1;
+
+--SELEÇÃO DE CIDADES/UF DUPLICADAS
+	FOR select
+			ci.Nome,
+			ci.UF
+		from
+			Cidade ci
+		group by
+			ci.Nome,
+			ci.UF
+		having COUNT(1) > 1;
+
 	DECLARE @vNome varchar(50),
-			@vUF varchar(2)
+			@vUF varchar(2),
+			@vTotalClientes int;
+
+--DEFINE QUE A LISTA DE CIDADES RETORNARÁ VALORES PARA AS
+--VARIÁVEIS CRIADAS.
 	OPEN ListaCidade;
 	FETCH NEXT FROM ListaCidade INTO @vNome, @vUF
-	WHILE (@@FETCH_STATUS=0) BEGIN
-	Print @vNome + '/'+@vUF;
-	FETCH NEXT FROM ListaCidade INTO @vNome, @vUF
-	END
+
+--ENQUANTO HOUVER RESULTADO NA BUSCA O NOME SERÁ EXIBIDO
+--NO CONSOLE CASO HAJA CLIENTE RELACIONADO À CIDADE
+	WHILE (@@FETCH_STATUS=0)
+		BEGIN
+			select @vTotalClientes = COUNT(1)
+			from Cliente cl
+			where exists(
+					select 1
+					from Cidade ci
+					where
+						ci.IDCidade = cl.IDCidade and
+						ci.Nome = @vNome and
+						ci.UF = @vUF);
+			
+			if (@vTotalClientes > 0)
+				Print @vNome +'/'+ @vUF +'. Total de Clientes: '+ cast(
+										@vTotalClientes as varchar(10));
+			FETCH NEXT FROM ListaCidade INTO @vNome, @vUF
+		END
+
+--AO TÉRMINO DAS BUSCAS POR NOMES DUPLICADOS A LISTA É
+--FINALIZADA
 	CLOSE ListaCidade;
 	DEALLOCATE ListaCidade;
 END
-*/
 --------------------------------------------------------------
 
 
 --Exercicio 3
-create view vw_Materiais_Mais_Usados as
+create index IX_Pedido_DataPedido on Pedido(DataPedido);
+create view Materiais_Mais_Usados as
 select top 1
 	m.IDMaterial,
 	m.Descricao,
@@ -76,13 +93,23 @@ group by
 order by "Usado" desc;
 
 select
-	p.IDProduto,
-	p.Nome
+	count(distinct p.IDPedido) "Total de Pedidos",
+	count(1) "Total de Itens"
 from
-	Produto p,
-	ProdutoMaterial pm
+	Pedido p,
+	PedidoItem i
 where
-	p.IDProduto = pm.IDProduto and
-	pm.IDMaterial in (
-		select IDMaterial from vw_Materiais_Mais_Usados);
+	i.IDPedido = p.IDPedido and
+	exists (select 1 
+			from ProdutoMaterial pm
+			where
+				pm.IDProduto = i.IDProduto and
+				pm.IDMaterial in (
+						select IDMaterial
+						from Materiais_Mais_Usados));
+
+select
+	ISNULL(SUM(ValorPedido), 0) "Valor Total de Vendas"
+from Pedido
+where DATEDIFF(day, GETDATE(), DataEntrega) <= 60;
 --------------------------------------------------------------
