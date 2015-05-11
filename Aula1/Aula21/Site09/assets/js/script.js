@@ -1,3 +1,5 @@
+'use strict';
+
 //EXERCÍCIO 01
 function brewdog(firstStr, secondStr) {
 	var menor = firstStr.length < secondStr.length ? firstStr : secondStr;
@@ -53,10 +55,62 @@ function Emprestimo(valor, juros, parcelas) {
 				((Math.pow(1 + this.juros, this.parcelas)) * this.juros)) * 100) / 100;
 		return p;
 	}
+
+	this.valorTotalJuros = function() {
+		return Math.round(((this.valorParcela() * this.parcelas) - this.valor) * 100) / 100;
+	}
 }
 
 var emp01 = new Emprestimo(1000, 0.03, 4);
 var emp02 = new Emprestimo(500, 0.05);
 
 emp01.valorParcela();
+emp02.valorTotalJuros();
+
+var testeEmprestimo01 = [
+    { emprestimo: new Emprestimo(1000, 0.03, 4),  esperado: 269.03 },
+    { emprestimo: new Emprestimo(1800, 0.05, 8),  esperado: 278.5 },
+    { emprestimo: new Emprestimo(500, 0.05),      esperado: 183.61 }
+  ].forEach(
+    function(b) {
+      var resultado = b.emprestimo.valorParcela();
+      console.assert(resultado === b.esperado, 'Errooooou! CT:', b.emprestimo, 'Esperado:', b.esperado, 'Obtido:', resultado);
+    }
+  );
+
+var testeEmprestimo02 = [
+    { emprestimo: new Emprestimo(1800, 0.13, 8),  esperado: 1200.8 },
+    { emprestimo: new Emprestimo(1000, 0.03, 4),  esperado: 76.12 },
+    { emprestimo: new Emprestimo(500, 0.05),      esperado: 50.83 }
+  ].forEach(
+    function(c) {
+      var resultado = c.emprestimo.valorTotalJuros();
+      console.assert(resultado === c.esperado, 'Errooooou! CT:', c.emprestimo, 'Esperado:', c.esperado, 'Obtido:', resultado);
+    }
+  );
+//---------------------------------------------------
+
+
+//EXERCÍCIO 03
+function palindromo(p) {
+	var palavra = correcaoDeAcentos(p);
+	palavra = palavra.replace(/[^A-Za-z;]/g, '');
+	var listaExcecao = ["iluminatti", "ledesma", "dante", "verdemusgo", "bacon"];
+	var palavraInvertida = palavra.split("").reverse().join("");
+	return ((listaExcecao.indexOf(palavra) > -1) || (palavra === palavraInvertida));
+}
+
+function correcaoDeAcentos (s){
+    var r=s.toLowerCase();
+    r = r.replace(/[àáâãäå]/gi,"a");
+    r = r.replace(/ç/gi,"c");
+    r = r.replace(/[èéêë]/gi,"e");
+    r = r.replace(/[ìíîï]/gi,"i");
+    r = r.replace(/[òóôõö]/gi,"o");
+    r = r.replace(/[ùúûü]/gi,"u");
+    return r;
+};
+
+palindromo("ana");
+palindromo("ôvo");
 //---------------------------------------------------
