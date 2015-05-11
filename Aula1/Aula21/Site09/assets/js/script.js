@@ -113,4 +113,25 @@ function correcaoDeAcentos (s){
 
 palindromo("ana");
 palindromo("ôvo");
+
+var testePalindromo = [
+    { teste: 'ovo',                                         esperado: true },
+    { teste: 'ôvo',                                         esperado: true },
+    { teste: 'arara',                                       esperado: true },
+    { teste: 'rodador',                                     esperado: true },
+    { teste: 'O tRoTe ToRtO',                               esperado: true },
+    { teste: 'bacon',                                       esperado: true },
+    { teste: 'A miss é péssima!',                           esperado: true },
+    { teste: 'VERDE musgo!!',                               esperado: true },
+    { teste: 'Nova Schin, cervejão!',                       esperado: false },
+    { teste: 'camigoal',                                    esperado: false },
+    { teste: 'ledesma@@@@@@@@',                             esperado: true },
+    { teste: '!!d@ante!?!?',                                esperado: true },
+    { teste: '1@ilu$$$m1in$$$$$$$$$$4att$$$$$$$$1i!!!!!',   esperado: true }
+  ].forEach(
+    function(d) {
+      var resultado = palindromo(d.teste);
+      console.assert(resultado === d.esperado, 'Errooooou! CT:', d.emprestimo, 'Esperado:', d.esperado, 'Obtido:', resultado);
+    }
+  );
 //---------------------------------------------------
