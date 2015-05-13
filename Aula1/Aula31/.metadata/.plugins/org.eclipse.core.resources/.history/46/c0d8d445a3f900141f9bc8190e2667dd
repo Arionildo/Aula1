@@ -1,0 +1,27 @@
+package listator;
+
+import static org.junit.Assert.assertEquals;
+
+import org.junit.Test;
+
+public class CwiTest {
+	
+	@Test
+	public void quandoExecutaToLowerCase() throws Exception {
+		assert(false);
+	}
+	
+	
+	@SuppressWarnings("deprecation")
+	@Test
+	public void recebeNomeDiretorioEImprime() {
+		Teste t = new Teste();
+		
+		String[] obtido = t.retornaBuscarDiretorio("C:/Users/projetocrescer/Desktop/CWI");
+		String[] esperado = {"Aula1"};
+		
+		assertEquals(esperado, obtido);
+	}
+	
+	
+}

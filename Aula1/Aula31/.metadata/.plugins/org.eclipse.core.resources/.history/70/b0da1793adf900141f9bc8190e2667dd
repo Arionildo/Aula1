@@ -1,0 +1,23 @@
+package filmator;
+
+import static org.junit.Assert.*;
+
+import java.util.ArrayList;
+
+import org.junit.Test;
+
+public class FilmatorTest {
+
+	@Test
+	public void colocarElencoNoFilme() {
+		Ator a01 = new Ator("Jack");
+		Ator a02 = new Ator("Maryanne");
+		Ator a03 = new Ator("Johnnie");
+		Ator a04 = new Ator("Paul");
+		Ator a05 = new Ator("Rebeckie");
+		ArrayList<Ator> lista = new ArrayList<Ator>();
+		
+		Filme f01 = new Filme("abc", Genero.AVENTURA, lista);
+	}
+
+}

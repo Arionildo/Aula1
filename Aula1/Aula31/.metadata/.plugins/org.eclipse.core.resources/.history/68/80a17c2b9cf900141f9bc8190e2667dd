@@ -1,0 +1,8 @@
+package filmator;
+
+public class Ator {
+	@Override
+	public String toString() {
+		return super.toString();
+	}
+}

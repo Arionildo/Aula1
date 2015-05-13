@@ -1,0 +1,19 @@
+package listator;
+
+import org.junit.Test;
+
+public class CwiTest {
+	
+	@Test
+	public void quandoExecutaToLowerCase() throws Exception {
+		assert(false);
+	}
+	
+	@Test
+	private void recebeNomeDiretorioEImprime() {
+		Teste t = new Teste();
+		
+		String[] obtido = t.retornaBuscarDiretorio("C:/Users/projetocrescer/Desktop/CWI");
+	}
+	
+}

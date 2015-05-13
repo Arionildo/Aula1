@@ -1,0 +1,33 @@
+package filmator;
+
+import java.util.ArrayList;
+
+public class Filme {
+	private ArrayList<Ator> elenco = new ArrayList<Ator>();
+	
+	public Filme(String nome, Genero genero, ArrayList<Ator> elenco) {
+		
+	}
+	
+	public ArrayList<Ator> getElenco() {
+		return elenco;
+	}
+
+	public void setAtor(Ator a) {
+		this.elenco.add(a);
+	}
+	
+	public ArrayList<Ator> atorComNome(String nome) {
+		ArrayList<Ator> atores = new ArrayList<Ator>();
+		
+		for (Ator a : elenco) {
+			if (a.getNome().toLowerCase().contains(nome.toLowerCase())) atores.add(a);
+		}
+		return atores;
+	}
+	
+	@Override
+	public String toString() {
+		return super.toString();
+	}
+}

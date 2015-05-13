@@ -1,0 +1,25 @@
+package filmator;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+
+public class Netflox {
+	private static HashMap<Genero,Integer> relatorio = new HashMap<>();
+	private ArrayList<Filme> filmes = new ArrayList<Filme>();
+	
+	public void reproduzirFilme(Filme filme) {
+		System.out.println("Reproduzindo o filme "+ filme);
+		gerarRelatorio(filme);
+	}
+	
+	private void gerarRelatorio(Filme filme) {
+		Genero genero = filme.getGenero();
+		int visto = relatorio.get(nomeFilme).intValue();
+		int visualizado = visto >= 0 ? visto++ : 0;
+		relatorio.put(nomeFilme, visualizado);
+	}
+	
+	private HashMap<String,Integer> verRelatorio(){
+		return relatorio;
+	}
+}

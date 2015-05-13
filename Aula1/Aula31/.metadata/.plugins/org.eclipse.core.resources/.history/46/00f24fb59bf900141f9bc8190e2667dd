@@ -1,0 +1,16 @@
+package filmator;
+
+import java.util.ArrayList;
+
+public class Filme {
+	ArrayList<Ator> elenco = new ArrayList<Ator>();
+	
+	public void setAtor(Ator a) {
+		this.elenco.add(a);
+	}
+	
+	@Override
+	public String toString() {
+		return super.toString();
+	}
+}
