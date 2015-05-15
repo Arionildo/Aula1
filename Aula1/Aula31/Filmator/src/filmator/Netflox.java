@@ -1,39 +1,33 @@
 package filmator;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
-public class Netflox {
-	private static HashMap<Genero,Integer> relatorio = new HashMap<>();
-	private Genero genero;
-	private ArrayList<Filme> acervo = new ArrayList<Filme>();
+public class Netflox extends Empresa{
+	private static HashMap<Genero,Integer> relatorioNF = new HashMap<>();
 	
-	public String reproduzirFilme(Filme filme) {
-		String log = "";
+	@Override
+	public void gerarRelatorio(Filme filme) {
+		genero = filme.getGenero();
+		int visualizado = 0;
 		
-		if (acervo.contains(filme)) {
-			log = "Reproduzindo o filme "+ filme;
+		if (relatorioNF.get(genero) == null) {
+			relatorioNF.put(genero, 0);
+			visualizado = relatorioNF.get(genero).intValue();
 		} else {
-			log = "O filme "+ filme +" não está no nosso acervo ainda";
+			visualizado = relatorioNF.get(genero).intValue();
 		}
 		
-		gerarRelatorio(filme);
-		
-		return log;
+		visualizado++;
+		relatorioNF.put(genero, visualizado);
 	}
 	
-	private void gerarRelatorio(Filme filme) {
-		genero = filme.getGenero();
-		int visto = relatorio.get(genero).intValue();
-		int visualizado = visto >= 0 ? visto++ : 0;
-		relatorio.put(genero, visualizado);
+	@Override
+	public HashMap<Genero,Integer> verRelatorio(){
+		return relatorioNF;
 	}
 	
-	private HashMap<Genero,Integer> verRelatorio(){
-		return relatorio;
-	}
-	
-	public void setAcervo(Filme filme) {
-		this.acervo.add(filme);
+	@Override
+	protected void limparRelatorio(){
+		Netflox.relatorioNF = new HashMap<>();
 	}
 }
