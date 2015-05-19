@@ -2,7 +2,6 @@ package listator;
 
 import java.io.File;
 import java.util.Arrays;
-
 import javax.swing.JOptionPane;
 
 public class Teste {
@@ -22,8 +21,8 @@ public class Teste {
 		*/
 		
 		//EXERCÍCIO01
-		t.buscarDiretorio();
-		t.buscarDiretorio("c:/ovo");
+		//t.buscarDiretorio();
+		//t.buscarDiretorio("c:/ovo");
 		//-------------------------------------------------------------
 	}
 
