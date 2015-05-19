@@ -1,7 +1,6 @@
 package mestreCuca;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class MestreCuca implements LivroReceitas{
 	private List<Receita> receitas = new ArrayList<>();
@@ -86,11 +85,16 @@ public class MestreCuca implements LivroReceitas{
 		List<Receita> listaPermitida = new ArrayList<Receita>();
 		
 		for (int i = 0; i < this.receitas.size(); i++) {
+			
+//ALOCA O TAMANHO DA LISTA DE INGREDIENTES
 			int limiteJ = this.receitas.get(i).getListaIngredientes().size();
+			
+//DEFINE UM VALOR QUE SE PERMANECER ZERADO PERMITIRÁ QUE A RECEITA ENTRE NA LISTA
 			int k = 0;
 			
 			for (int j = 0; j < limiteJ; j++) {
 				
+//PEGA O INGREDIENTE ATUAL A SER COMPARADO NA LISTA
 				Ingrediente ingredienteAtual = this.receitas.get(i).getListaIngredientes().get(j);
 				
 				if (ingrediente.contains(ingredienteAtual)) {
@@ -98,11 +102,32 @@ public class MestreCuca implements LivroReceitas{
 				}
 			}
 			
+//MOMENTO DA ADIÇÃO DA RECEITA NA LISTA
 			if (k == 0) {
 				listaPermitida.add(this.receitas.get(i));
 			}
 		}
 		
 		return listaPermitida;
+	}
+	
+	public List<Ingrediente> listaDeCompras(List<Receita> receita) {
+		List<Ingrediente> lista = new ArrayList<Ingrediente>();
+		Map<String, Double> mapa = new HashMap<>();
+		
+		for (Receita r : receita) {
+			for (int i = 0; i < r.getListaIngredientes().size(); i++) {
+				String nome = r.getListaIngredientes().get(i).getNome();
+				double qtd = r.getListaIngredientes().get(i).getQuantidade();
+				
+				if (mapa.containsKey(nome)) {
+					//CONTINUAR
+				} else {
+					mapa.put(nome, qtd);
+				}
+			}
+		}
+		
+		return lista;
 	}
 }
