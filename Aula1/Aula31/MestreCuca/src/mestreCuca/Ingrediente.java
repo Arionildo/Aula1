@@ -3,11 +3,13 @@ package mestreCuca;
 public class Ingrediente {
 	private String nome;
 	private double quantidade;
+	private double valor;
 	private UnidadeMedida unidadeMedida;
 	
-	public Ingrediente(String nome,	double quantidade, UnidadeMedida unidadeMedida) {
+	public Ingrediente(String nome,	double quantidade, double valor, UnidadeMedida unidadeMedida) {
 		this.nome = nome;
 		this.quantidade = quantidade;
+		this.valor = valor;
 		this.unidadeMedida = unidadeMedida;
 	}
 	
@@ -27,6 +29,14 @@ public class Ingrediente {
 		this.quantidade = quantidade;
 	}
 	
+	public double getValor() {
+		return valor;
+	}
+
+	public void setValor(double valor) {
+		this.valor = valor;
+	}
+
 	public UnidadeMedida getUnidadeMedida() {
 		return unidadeMedida;
 	}

@@ -9,7 +9,7 @@ public class MestreCuca implements LivroReceitas{
 	public MestreCuca(List<Receita> receitas) {
 		this.receitas.addAll(receitas);
 	}
-
+	
 	@Override
 	public void inserir(Receita receita) {
 		if (!receitas.contains(receita)) this.receitas.add(receita);
@@ -58,8 +58,51 @@ public class MestreCuca implements LivroReceitas{
 		}
 	}
 	
-	public static void main(String[] args) {
-		
+	public double getValorUmaReceita(Receita receita) {
+		return receita.getValorTotalIngredientes();
 	}
-
+	
+	public double getValorListaReceitas(List<Receita> receita) {
+		double valor = 0.0;
+		
+		for (Receita r : receita) {
+			valor += r.getValorTotalIngredientes();
+		}
+		
+		return valor;
+	}
+	
+	public double getValorTotalReceitas() {
+		double valor = 0.0;
+		
+		for (Receita r : this.receitas) {
+			valor += r.getValorTotalIngredientes();
+		}
+		
+		return valor;
+	}
+	
+	public List<Receita> protecaoAosAlergicos(List<Ingrediente> ingrediente) {
+		List<Receita> listaPermitida = new ArrayList<Receita>();
+		
+		for (int i = 0; i < this.receitas.size(); i++) {
+			int limiteJ = this.receitas.get(i).getListaIngredientes().size();
+			int k = 0;
+			
+			for (int j = 0; j < limiteJ; j++) {
+				
+				Ingrediente ingredienteAtual = this.receitas.get(i).getListaIngredientes().get(j);
+				
+				if (ingrediente.contains(ingredienteAtual)) {
+					k++;
+				}
+			}
+			
+			if (k == 0) {
+				listaPermitida.add(this.receitas.get(i));
+			}
+		}
+		
+		return listaPermitida;
+	}
 }

@@ -42,6 +42,18 @@ public class Receita{
 		return texto;
 	}
 	
+	public double getValorTotalIngredientes(){
+		double valor = 0.0;
+		for (Ingrediente i : ingrediente) {
+			valor += i.getValor();
+		}
+		return valor;
+	}
+	
+	public List<Ingrediente> getListaIngredientes(){
+		return ingrediente;
+	}
+	
 	@Override
 	public String toString() {
 		String texto = String.format("Nome da Receita: %s\n"
