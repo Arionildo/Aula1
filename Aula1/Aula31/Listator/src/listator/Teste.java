@@ -21,8 +21,8 @@ public class Teste {
 		*/
 		
 		//EXERCÍCIO01
-		//t.buscarDiretorio();
-		//t.buscarDiretorio("c:/ovo");
+		t.buscarDiretorio();
+		t.buscarDiretorio("c:/ovo");
 		//-------------------------------------------------------------
 	}
 
