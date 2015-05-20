@@ -3,7 +3,9 @@ package testeMestreCuca;
 import static org.junit.Assert.*;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import mestreCuca.Ingrediente;
 import mestreCuca.Instrucao;
@@ -231,6 +233,41 @@ public class TesteMestreCuca {
 		obtido.addAll(m.protecaoAosAlergicos(proibidos));
 		
 		assertEquals(esperado, obtido);
+	}
+	
+	@Test
+	public void criandoListaDeCompras() {
+		Ingrediente ing01 = new Ingrediente("Massa", 400, 2, UnidadeMedida.GRAMA);
+		Ingrediente ing02 = new Ingrediente("Salsicha", 50, 0.75, UnidadeMedida.GRAMA);
+		Ingrediente ing03 = new Ingrediente("Carne", 50, 2.45, UnidadeMedida.GRAMA);
+		Instrucao ins01 = new Instrucao("1 - Aqueça a água por 5 minutos; "
+				+ "2 - Ponha a água e a massa numa panela e espere 5 minutos; "
+				+ "3 - Sirva com tempero à gosto.");
+		Instrucao ins02 = new Instrucao("1 - Picar e colocar a salsicha misturada com a massa.");
+		List<Ingrediente> ingrediente = new ArrayList<>();
+		List<Ingrediente> ingrediente02 = new ArrayList<>();
+		List<Instrucao> instrucao = new ArrayList<>();
+		ingrediente.add(ing01);
+		ingrediente.add(ing02);
+		ingrediente02.add(ing01);
+		ingrediente02.add(ing02);
+		ingrediente02.add(ing03);
+		instrucao.add(ins01);
+		instrucao.add(ins02);
+		Receita r01 = new Receita("miojo com salsicha", ingrediente02, instrucao);
+		Receita r02 = new Receita("miojo com salsicha", ingrediente, instrucao);
+		
+		List<Receita> listaReceitas = new ArrayList<Receita>();
+		MestreCuca m = new MestreCuca(listaReceitas);
+		m.inserir(r01);
+		m.inserir(r02);
+		
+		Map<Ingrediente, Double> esperado = new HashMap<Ingrediente, Double>();
+		esperado.put(ing01, 800.0);
+		esperado.put(ing02, 100.0);
+		esperado.put(ing03, 50.0);
+		
+		assertEquals(esperado, m.listaDeCompras(m.getTotalReceitas()));
 	}
 
 }

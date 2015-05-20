@@ -111,20 +111,16 @@ public class MestreCuca implements LivroReceitas{
 		return listaPermitida;
 	}
 	
-	public List<Ingrediente> listaDeCompras(List<Receita> receita) {
-		List<Ingrediente> lista = new ArrayList<Ingrediente>();
-		Map<String, Double> mapa = new HashMap<>();
+	
+//EXERCÍCIO CORRIGIDO
+	public Map<Ingrediente, Double> listaDeCompras(List<Receita> receita) {
+		Map<Ingrediente, Double> lista = new HashMap<Ingrediente, Double>();
 		
 		for (Receita r : receita) {
-			for (int i = 0; i < r.getListaIngredientes().size(); i++) {
-				String nome = r.getListaIngredientes().get(i).getNome();
-				double qtd = r.getListaIngredientes().get(i).getQuantidade();
-				
-				if (mapa.containsKey(nome)) {
-					//CONTINUAR
-				} else {
-					mapa.put(nome, qtd);
-				}
+			for (Ingrediente i : r.getListaIngredientes()) {
+				double qtdAnterior = lista.getOrDefault(i, 0.0);
+				double qtdAtual = i.getQuantidade();
+				lista.put(i, qtdAnterior+qtdAtual);
 			}
 		}
 		
