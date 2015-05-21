@@ -1,6 +1,6 @@
 package testeMestreCuca;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -269,5 +269,4 @@ public class TesteMestreCuca {
 		
 		assertEquals(esperado, m.listaDeCompras(m.getTotalReceitas()));
 	}
-
 }
