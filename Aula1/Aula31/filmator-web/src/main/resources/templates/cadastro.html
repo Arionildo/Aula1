@@ -1,0 +1,23 @@
+<html>
+	<body>
+		<marquee><img src="/img/dogao.gif"></marquee>
+		<h1>olá {{mensagem}}</h1>
+
+		<form action="/consulta" method="POST">
+			<label>Nome do Filme:</label>
+			<input type="text" name="nome" placeholder="Ex.: Piratas do Caribe">
+		<!--
+			<label>Gênero:</label>
+			<select>
+				{{#generos}}
+				<option>{{.}}</option>
+				{{/generos}}
+			</select>
+		-->
+			<input type="submit" value="Enviar">
+		</form>
+
+
+		
+	</body>
+</html>
