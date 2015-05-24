@@ -17,5 +17,15 @@ public class FilmeDao {
 		//Imagina que estes dados estao vindo do banco
 		return filmes;
 	}
+	
+	public boolean isDuplicado(Filme filme){
+		List<String> nomes = new ArrayList<String>();
+		
+		for (Filme f : filmes) {
+			nomes.add(f.getNome());
+		}
+		
+		return nomes.contains(filme.getNome());
+	}
 }
  

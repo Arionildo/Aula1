@@ -13,6 +13,7 @@ public class HomeController {
 
 	private FilmeDao dao = new FilmeDao();
 	private String usuario;
+	private String mensagem;
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Model model) {
@@ -21,29 +22,38 @@ public class HomeController {
 	
 	@RequestMapping(value = "/cadastro", method = RequestMethod.POST)
 	public String iniciarSessao(Model model, String nome) {
+//RETORNA A REQUISIÇÃO CASO O USUÁRIO NÃO INFORME UM NOME VÁLIDO
+		if (nome == null || nome.trim() == "" || nome.trim().length() < 3) {
+			mensagem = "Verifique se o nome que você digitou não está vazio\n"
+					+ "ou possui menos de 3 caracteres";
+			model.addAttribute("mensagem", mensagem);
+			return "inicio"; 
+		}
+//APÓS INFORMAR UM NOME VÁLIDO, O USUÁRIO É LEVADO À PRÓXIMA PÁGINA
+		
 		usuario = nome;
-		model.addAttribute("mensagem", usuario);
+		mensagem = "";
+		
+		model.addAttribute("usuario", usuario);
 		return "cadastro";
 	}
 	
 	@RequestMapping(value = "/consulta", method = RequestMethod.POST)
-	public String AdicionarFilme(Model model, String nome) {
+	public String adicionarFilme(Model model, String nome) {
 		Filme filme = new Filme(nome);
-		dao.inserirFilme(filme);
-		model.addAttribute("mensagem", usuario);
+//IMPEDE QUE HAJA FILME COM NOME DUPLICADO
+		if (!dao.isDuplicado(filme)) dao.inserirFilme(filme);
+		
+		model.addAttribute("usuario", usuario);
 		model.addAttribute("filmes",  dao.buscaTodosFilmes());
-		return "cadastro";
+		return "consulta";
 	}
 	
-	/*
-	@RequestMapping(value = "/banco", method = RequestMethod.POST)
-	public String consultarAcervo(Model model, String nome) {
-		Filme filme = new Filme(nome);
-		dao.inserirFilme(filme);
-		model.addAttribute("mensagem", usuario);
-		model.addAttribute("filmes",  dao.buscaTodosFilmes());
-		return "banco";
+	@RequestMapping(value = "/cadastro", method = RequestMethod.GET)
+	public String voltarAoCadastro(Model model) {
+		
+		model.addAttribute("usuario", usuario);
+		return "cadastro";
 	}
-	*/
 }
 
