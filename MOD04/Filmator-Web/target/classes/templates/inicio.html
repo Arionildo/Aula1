@@ -6,12 +6,12 @@
 		<link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
 	</head>
 	<body>
-		<div class="campoNome">
+		<div class="campo">
 			<h1>Olá,</h1>
 			<h2>Qual o seu nome?<h2>
-			<form class="form01" action="/cadastro" method="POST">
-				<input type="text" name="nome" placeholder="Ex.: Maguila">
-				<input type="submit" value="Entrar">
+			<form action="/cadastro" method="POST">
+				<input class="input01" type="text" name="nome" placeholder="Ex.: Maguila">
+				<input type="submit" value="ENTRAR">
 			</form>
 			{{#mensagem}}
 			<p>{{mensagem}}</p>

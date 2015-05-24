@@ -1,6 +1,6 @@
 * {
 	font-family: 'Open Sans Condensed', sans-serif;
-	color: #1A1A1A;
+	color: #2e2e2e;
 }
 
 body {
@@ -11,17 +11,72 @@ body {
 	background-size: cover;
 }
 
-.campoNome {
+form {
+	opacity: 1;
+	text-align: center;
+}
+
+input {
+	margin: auto;
+	display: block;
+}
+
+input:not([type="submit"]), select{
+	padding:8px;
+	border:2px solid #ccc; 
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	font-size: 1em;
+	font-weight: 600;
+	width: 90%;
+}
+
+input[type=submit] {
+	padding: 5px 40px;
+	-webkit-border-radius: 3;
+	-moz-border-radius: 3;
+	border-radius: 4px;
+	color: white;
+	font-size: 0.8em;
+	background: #2e2e2e;
+	border: 0px;
+}
+
+label {
+	font-size: 1.3em;
+}
+
+select {
+	width: 50%;
+	margin: auto;
+}
+
+textarea {
+	width: 320px;
+	height: 200px;
+	font-size: 1em;
+}
+
+.campo {
 	width: 30%;
 	min-width: 360px;
 	margin: 0 auto;
 	background-color: white;
 	opacity: 0.8;
-    filter: alpha(opacity=40); /* For IE8 and earlier */
+    filter: alpha(opacity=80); /* <= IE8 */
 	display: table;
 	padding: 2%;
 }
 
-.form01 {
-	text-align: center;
+.cadastro {
+	position: relative;
+	top: 50%;
+}
+
+.input01 {
+	font-size: 0.7em !important;
+}
+
+.proximaLinha{
+	display: block;
 }
