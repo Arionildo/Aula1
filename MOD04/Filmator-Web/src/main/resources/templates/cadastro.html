@@ -1,4 +1,9 @@
 <html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" type="text/css" href="../css/script.css">
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+	</head>
 	<body>
 		<marquee><img src="/img/dogao.gif"></marquee>
 		<h1>Olá {{usuario}}</h1>
@@ -14,6 +19,8 @@
 				</select>
 			<label>Ano:</label>
 				<input type="number" name="ano" maxlength="4" placeholder="Ex.: 2007">
+			<label>URL da Capa/Imagem do Filme:</label>
+				<input type="url" name="foto" placeholder="Ex.: http://capasdefilmes.com/lagoaAzul.jpg">
 			<label>Sinopse:</label>
 				<textarea name="sinopse" placeholder="Ex.: Era uma vez..."></textarea>
 			<input type="submit" value="Enviar">

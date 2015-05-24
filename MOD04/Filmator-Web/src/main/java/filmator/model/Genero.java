@@ -24,11 +24,4 @@ public enum Genero {
         }
         return null;
     }
-    
-    public static Genero getGenero(String genero){
-        for(Genero e : Genero.values()){
-            if(genero == e.nome) return e;
-        }
-        return null;
-    }
 }

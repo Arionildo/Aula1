@@ -1,4 +1,9 @@
 <html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" type="text/css" href="../css/script.css">
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+	</head>
 	<body>
 		<marquee><img src="/img/dogao.gif"></marquee>
 		<h1>olá {{usuario}}</h1>
@@ -9,10 +14,22 @@
 		
 		<ul>
 			{{#filmes}}
-			<li>{{nome}}
-			
-			<br/>{{ano}}
-			<br/>{{sinopse}}
+			<li>
+			<p>
+				Nome: {{nome}}
+			</p>
+			<p>
+				Gênero: {{genero}}
+			</p>
+			<p>
+				Ano: {{ano}}
+			</p>
+			<p>
+				<img src="{{foto}}">
+			</p>
+			<p>
+				Sinopse: {{sinopse}}
+			</p>
 			</li>
 			{{/filmes}}
 		</ul>		

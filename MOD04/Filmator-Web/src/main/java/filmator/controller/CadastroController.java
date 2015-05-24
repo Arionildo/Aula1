@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import filmator.dao.FilmeDao;
 import filmator.model.Filme;
-import filmator.model.Genero;
 
 @Controller
 public class CadastroController {
@@ -16,18 +15,20 @@ public class CadastroController {
 	private String mensagem;
 	
 	@RequestMapping(value = "/consulta", method = RequestMethod.POST)
-	public String adicionarFilme(Model model, String nome, String genero, String ano, String sinopse) {
-		if (nome == null
-				|| nome.trim() == ""
-				|| nome.trim().length() < 3) {
-			mensagem = "Verifique se o nome que você digitou não está vazio"
-					+ "ou possui menos de 3 caracteres.";
+	public String adicionarFilme(Model model, String nome, String genero, String ano, String foto, String sinopse) {
+		if (nome.trim() == ""
+				|| nome.trim().length() < 3
+				|| ano.trim() == ""
+				|| ano.trim().length() != 4
+				|| foto.trim() == ""
+				|| sinopse.trim() == "") {
+			mensagem = "Verifique se nenhum campo está vazio"
+					+ "ou possui menos de 3 caracteres(4, para o ano).";
 			model.addAttribute("mensagem", mensagem);
-			mensagem = "";
-			return "cadastro"; 
+			return "cadastro";
 		}
 		
-		Filme filme = new Filme(nome, Genero.getGenero(genero), ano, sinopse);
+		Filme filme = new Filme(nome, genero, ano, foto, sinopse);
 //IMPEDE QUE HAJA FILME COM NOME DUPLICADO
 		if (dao.isNotDuplicado(filme)) dao.inserirFilme(filme);
 		
