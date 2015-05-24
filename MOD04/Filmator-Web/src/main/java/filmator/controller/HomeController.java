@@ -5,14 +5,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import filmator.dao.FilmeDao;
-import filmator.model.Filme;
+import filmator.model.Genero;
 
 @Controller
 public class HomeController {
 
-	private FilmeDao dao = new FilmeDao();
-	private String usuario;
+	public static String usuario;
 	private String mensagem;
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
@@ -24,9 +22,10 @@ public class HomeController {
 	public String iniciarSessao(Model model, String nome) {
 //RETORNA A REQUISIÇÃO CASO O USUÁRIO NÃO INFORME UM NOME VÁLIDO
 		if (nome == null || nome.trim() == "" || nome.trim().length() < 3) {
-			mensagem = "Verifique se o nome que você digitou não está vazio\n"
+			mensagem = "Verifique se o nome que você digitou não está vazio"
 					+ "ou possui menos de 3 caracteres";
 			model.addAttribute("mensagem", mensagem);
+			mensagem = "";
 			return "inicio"; 
 		}
 //APÓS INFORMAR UM NOME VÁLIDO, O USUÁRIO É LEVADO À PRÓXIMA PÁGINA
@@ -35,24 +34,7 @@ public class HomeController {
 		mensagem = "";
 		
 		model.addAttribute("usuario", usuario);
-		return "cadastro";
-	}
-	
-	@RequestMapping(value = "/consulta", method = RequestMethod.POST)
-	public String adicionarFilme(Model model, String nome) {
-		Filme filme = new Filme(nome);
-//IMPEDE QUE HAJA FILME COM NOME DUPLICADO
-		if (!dao.isDuplicado(filme)) dao.inserirFilme(filme);
-		
-		model.addAttribute("usuario", usuario);
-		model.addAttribute("filmes",  dao.buscaTodosFilmes());
-		return "consulta";
-	}
-	
-	@RequestMapping(value = "/cadastro", method = RequestMethod.GET)
-	public String voltarAoCadastro(Model model) {
-		
-		model.addAttribute("usuario", usuario);
+		model.addAttribute("generos", Genero.values());
 		return "cadastro";
 	}
 }

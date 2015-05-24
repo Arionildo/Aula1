@@ -5,17 +5,22 @@
 
 		<form action="/consulta" method="POST">
 			<label>Nome do Filme:</label>
-			<input type="text" name="nome" placeholder="Ex.: Piratas do Caribe">
-		<!--
+				<input type="text" name="nome" placeholder="Ex.: Piratas do Caribe">
 			<label>Gênero:</label>
-			<select>
-				{{#generos}}
-				<option>{{.}}</option>
-				{{/generos}}
-			</select>
-		-->
+				<select name="genero">
+					{{#generos}}
+					<option value="{{.}}">{{nome}}</option>
+					{{/generos}}
+				</select>
+			<label>Ano:</label>
+				<input type="number" name="ano" maxlength="4" placeholder="Ex.: 2007">
+			<label>Sinopse:</label>
+				<textarea name="sinopse" placeholder="Ex.: Era uma vez..."></textarea>
 			<input type="submit" value="Enviar">
 		</form>
+		{{#mensagem}}
+		<p>{{mensagem}}</p>
+		{{/mensagem}}
 
 
 		

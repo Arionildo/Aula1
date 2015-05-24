@@ -18,14 +18,14 @@ public class FilmeDao {
 		return filmes;
 	}
 	
-	public boolean isDuplicado(Filme filme){
+	public boolean isNotDuplicado(Filme filme){
 		List<String> nomes = new ArrayList<String>();
 		
 		for (Filme f : filmes) {
 			nomes.add(f.getNome());
 		}
 		
-		return nomes.contains(filme.getNome());
+		return !nomes.contains(filme.getNome());
 	}
 }
  
