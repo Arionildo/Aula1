@@ -16,6 +16,12 @@ form {
 	text-align: center;
 }
 
+img {
+	float: left;
+	max-width: 50%;
+	margin-right: 5px;
+}
+
 input {
 	margin: auto;
 	display: block;
@@ -46,6 +52,10 @@ label {
 	font-size: 1.3em;
 }
 
+li p {
+	border-bottom: 1px solid #2e2e2e; 
+}
+
 select {
 	width: 50%;
 	margin: auto;
@@ -55,6 +65,11 @@ textarea {
 	width: 320px;
 	height: 200px;
 	font-size: 1em;
+}
+
+ul {
+	list-style-type: none;
+	display: inline;
 }
 
 .campo {
@@ -71,6 +86,25 @@ textarea {
 .cadastro {
 	position: relative;
 	top: 50%;
+}
+
+.consulta {
+	position: relative;
+	margin-top: 15px;
+	margin-left: 30px;
+	margin-bottom: 15px;
+	display: inline-block;
+	max-height: 400px;
+}
+
+.consulta:first {
+	margin-top: 0px !important;
+}
+
+.imagemSinopse {
+	width: 100%;
+	height: 250px;
+	overflow-y: scroll;
 }
 
 .input01 {
