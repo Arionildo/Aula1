@@ -1,20 +1,22 @@
-<html>
+<!DOCTYPE html>
+<html lang="pt-BR">
 	<head>
 		<meta charset="UTF-8">
-		<link rel="stylesheet" type="text/css" href="../css/script.css">
+		<link rel="stylesheet" type="text/css" href="/style.css">
 		<link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
 	</head>
 	<body>
-		<marquee><img src="/img/dogao.gif"></marquee>
-		<h1>Olá,</h1>
-		<h2>Qual o seu nome?<h2>
-		<form action="/cadastro" method="POST">
-			<input type="text" name="nome" placeholder="Ex.: Maguila">
-			<input type="submit" value="Entrar">
-		</form>
-		{{#mensagem}}
-		<p>{{mensagem}}</p>
-		{{/mensagem}}
+		<div class="campoNome">
+			<h1>Olá,</h1>
+			<h2>Qual o seu nome?<h2>
+			<form class="form01" action="/cadastro" method="POST">
+				<input type="text" name="nome" placeholder="Ex.: Maguila">
+				<input type="submit" value="Entrar">
+			</form>
+			{{#mensagem}}
+			<p>{{mensagem}}</p>
+			{{/mensagem}}
+		</div>
 		
 	</body>
 </html>

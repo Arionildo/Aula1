@@ -1,7 +1,27 @@
 * {
 	font-family: 'Open Sans Condensed', sans-serif;
+	color: #1A1A1A;
 }
 
 body {
 	margin: 0;
+	background-image: url("img/fundo01.jpg");
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+}
+
+.campoNome {
+	width: 30%;
+	min-width: 360px;
+	margin: 0 auto;
+	background-color: white;
+	opacity: 0.8;
+    filter: alpha(opacity=40); /* For IE8 and earlier */
+	display: table;
+	padding: 2%;
+}
+
+.form01 {
+	text-align: center;
 }

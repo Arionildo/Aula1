@@ -22,7 +22,7 @@ public class CadastroController {
 				|| ano.trim().length() != 4
 				|| foto.trim() == ""
 				|| sinopse.trim() == "") {
-			mensagem = "Verifique se nenhum campo está vazio"
+			mensagem = "Verifique se nenhum campo está vazio "
 					+ "ou possui menos de 3 caracteres(4, para o ano).";
 			model.addAttribute("mensagem", mensagem);
 			return "cadastro";

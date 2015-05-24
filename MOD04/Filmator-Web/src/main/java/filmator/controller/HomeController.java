@@ -22,7 +22,7 @@ public class HomeController {
 	public String iniciarSessao(Model model, String nome) {
 //RETORNA A REQUISIÇÃO CASO O USUÁRIO NÃO INFORME UM NOME VÁLIDO
 		if (nome == null || nome.trim() == "" || nome.trim().length() < 3) {
-			mensagem = "Verifique se o nome que você digitou não está vazio"
+			mensagem = "Verifique se o nome que você digitou não está vazio "
 					+ "ou possui menos de 3 caracteres";
 			model.addAttribute("mensagem", mensagem);
 			mensagem = "";
